@@ -58,7 +58,7 @@ import_undp_excel_sheets = lapply(setNames(undp_sheet_names, undp_sheet_names),
 # then use the handy pivot function to get the data into the right column structure. 
 undp_offices = bind_rows(import_undp_excel_sheets$RB_Africa, 
                          import_undp_excel_sheets$RB_Asia_Pacific, 
-                         import_undp_excel_sheets$`RB_ArabStates`, 
+                         import_undp_excel_sheets$`RB_Arab States`, 
                          import_undp_excel_sheets$RB_Europe_CIS, 
                          import_undp_excel_sheets$`RB_Latin America`, 
                         .id="undp_sheet_names") %>%
@@ -90,7 +90,7 @@ undp_offices <- undp_offices %>%
   # the awesomeness of the countrycode() package to 'guess' the correct names and put them in a new variable
   
   mutate(country = countrycode(original_country_field, origin= "country.name", destination = "country.name")) %>%
-  select(undp_offices, country)
+  select(undp_office, country)
 
 
 # CORE DATA PREPARATION
