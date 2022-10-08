@@ -90,7 +90,8 @@ undp_offices <- undp_offices %>%
   # the awesomeness of the countrycode() package to 'guess' the correct names and put them in a new variable
   
   mutate(country = countrycode(original_country_field, origin= "country.name", destination = "country.name")) %>%
-  select(undp_office, country)
+  select(undp_office, country) %>%
+  distinct()
 
 
 # CORE DATA PREPARATION
